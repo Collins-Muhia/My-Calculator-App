@@ -5,10 +5,10 @@ from tkinter.constants import SUNKEN
 
 window = tk.Tk()
 window.title('Collins Calculator')
-frame = tk.Frame(master=window, bg="red", padx=10)
+frame = tk.Frame(master=window, bg="black", padx=20)
 frame.pack()
 entry = tk.Entry(master=frame, relief=SUNKEN, borderwidth=3, width=30)
-entry.grid(row=0, column=0, columnspan=3, ipady=2, pady=2)
+entry.grid(row=0, column=0, columnspan=3, ipady=10, pady=2)
 
 
 def myclick(number):
@@ -59,6 +59,11 @@ button_0 = tk.Button(master=frame, text='0', padx=15,
 					pady=5, width=3, command=lambda: myclick(0))
 button_0.grid(row=4, column=1, pady=2)
 
+button_clear_entry = tk.Button(master=frame, text="CE", padx=15,
+                               pady=5, width=3, command=lambda: entry.delete(len(entry.get())-1, tk.END))
+button_clear_entry.grid(row=4, column=0, pady=2)
+
+
 button_add = tk.Button(master=frame, text="+", padx=15,
 					pady=5, width=3, command=lambda: myclick('+'))
 button_add.grid(row=5, column=0, pady=2)
@@ -80,7 +85,7 @@ button_clear = tk.Button(master=frame, text="clear",
 button_clear.grid(row=6, column=1, columnspan=2, pady=2)
 
 button_equal = tk.Button(master=frame, text="=", padx=15,
-						pady=5, width=9, command=equal)
+						pady=5, width=5, command=equal)
 button_equal.grid(row=7, column=0, columnspan=3, pady=2)
 
 window.mainloop()
